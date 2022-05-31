@@ -79,15 +79,9 @@ function startScan(){
   }
 }
 
-function getInitizlized(){
-  if (initialized === true) {
-    return "true";
-  }else{
-    return "false";
+function stopScan(){
+  if (initialized) {
+    recognizer.stopScanning(true);
   }
-}
-
-function hideControls(){
-  document.getElementById("controls").style.display = "none";
 }
 

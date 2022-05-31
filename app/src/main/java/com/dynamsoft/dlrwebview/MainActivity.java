@@ -153,11 +153,33 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void pauseScan(){
-        webView.evaluateJavascript("javascript:pauseScan()", new ValueCallback<String>() {
-            @Override
-            public void onReceiveValue(String value) {
-            }
-        });
+    private void stopScan(){
+        if (initialized) {
+            webView.evaluateJavascript("javascript:stopScan()", new ValueCallback<String>() {
+                @Override
+                public void onReceiveValue(String value) {
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        stopScan();
+        webView.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (webView.getVisibility() == View.VISIBLE) {
+            startScan();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopScan();
     }
 }
