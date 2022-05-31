@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Text Scanner</title>
+  <link rel="stylesheet" type="text/css" href="scanner.css" />
+  <script src="https://unpkg.com/eruda@2.4.1/eruda.js"></script>
+  <script>eruda.init();</script>
+  <script src="https://appassets.androidplatform.net/assets/dce/dce.js"></script>
+  <script src="https://appassets.androidplatform.net/assets/dlr/dlr.js"></script>
+</head>
+<body>
+  <div id="status">Initializing...</div>
+  <div id="controls">
+    Template:
+    <select id="template">
+      <option>video-MRZ</option>
+      <option>video-numberLetter</option>
+    </select>
+    <button id="startButton">Start Scan</button>
+    <div id="confirmedResult"></div>
+  </div>
+  <div id="modal" class="modal-window">
+    <div class="overflow">
+      <pre id="result"></pre>
+    </div>
+    
+    <button id="correctButton">Correct</button>
+    <button id="rescanButton">Rescan</button>
+  </div>
+  <script src="scanner.js"></script>
+</body>
+</html>
